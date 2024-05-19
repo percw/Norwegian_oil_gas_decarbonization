@@ -42,8 +42,8 @@ I recommend either cloning the repo or running the code in Google Collab. This p
 
 ### 1. Geospatial data analysis
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github.com/percw/Norwegian_oil_gas_decarbonization/blob/main/notebooks/norwegian_shelf.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/percw/Norwegian_oil_gas_decarbonization/blob/main/notebooks/norwegian_shelf.ipynb)
 
 ### 2. Production and emission analysis
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github.com/percw/Norwegian_oil_gas_decarbonization/blob/main/notebooks/production_emission_data.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/percw/Norwegian_oil_gas_decarbonization/blob/main/notebooks/production_emission_data.ipynb)
