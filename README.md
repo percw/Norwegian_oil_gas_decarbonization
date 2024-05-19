@@ -49,4 +49,4 @@ The project contains several jupyter notebooks files. To run them i recommend ei
 
 ### 2. Production and emission analysis 
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github.com/percw/Norwegian_oil_gas_decarbonization/blob/master/notebooks/data_cleaning.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github.com/percw/Norwegian_oil_gas_decarbonization/blob/master/notebooks/production_and_emission_data.ipynb)
