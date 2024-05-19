@@ -1,1 +1,0 @@
-# Norwegian_oil_gas_decarbonization
