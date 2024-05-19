@@ -23,7 +23,9 @@ The data for this project includes:
 - Shapefiles for fields, pipes, rigs, and wells
 - Additional attribute data in DBF format
 - Relevant guidelines and documentation
-- Production and emission data from sokkeldirektoratet.no, norskpetroleum.no, norskeutslipp.no
+- [Production and emission data from sokkeldirektoratet.no](https://sokkeldirektoratet.no)
+- [Production and emission data from norskpetroleum.no](https://norskpetroleum.no)
+- [Production and emission data from norskeutslipp.no](https://norskeutslipp.no)
 
 ## Setup
 
@@ -36,10 +38,15 @@ To get started, clone this repository and set up your environment.
 - pandas
 - folium
 
-### Installation
+### Running the Code
 
-1. Clone the repository:
+The project contains several jupyter notebooks files. To run them i recommend either cloning the repository, or open them directly in Google Colab.
 
-   ```sh
-   git clone https://github.com/percw/Norwegian_oil_gas_decarbonization/.git
-   cd Norwegian_oil_gas_decarbonization
+### 1. Geospatial analysis
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github.com/percw/Norwegian_oil_gas_decarbonization/blob/master/notebooks/norwegian_shelf.ipynb)
+
+
+### 2. Production and emission analysis 
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github.com/percw/Norwegian_oil_gas_decarbonization/blob/master/notebooks/data_cleaning.ipynb)
