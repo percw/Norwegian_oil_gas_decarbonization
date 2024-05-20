@@ -21,8 +21,8 @@ This project aims to provide a comprehensive analysis of the oil and gas fields 
 
 The data for this project includes:
 - Shapefiles for fields, pipes, rigs, and wells
-- Additional attribute data in DBF format
 - Relevant guidelines and documentation
+- The data is provided by [norskpetroleum.no](https://norskpetroleum.no), [norskeutslipp.no](https://norskeutslipp.no), and [sokkeldirektoratet.no](https://sokkeldirektoratet.no)
 
 ## Setup
 
