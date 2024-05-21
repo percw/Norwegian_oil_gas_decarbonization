@@ -1,4 +1,4 @@
-# Geospatial Data for Oil and Gas Fields on the Norwegian Continental Shelf
+# Geospatial Emission and Production Data for Oil and Gas Fields on the Norwegian Continental Shelf
 
 ## Overview
 
@@ -20,13 +20,13 @@ This project aims to provide a comprehensive analysis of the oil and gas fields 
 ## Data
 
 The data for this project includes:
-- Shapefiles for fields, pipes, rigs, and wells
-- Relevant guidelines and documentation
+- Shapefiles for geolocation of fields, pipes, rigs, and wells
+- CSV files for information about production, emissions, and other relevant data for each field
 - The data is provided by [norskpetroleum.no](https://norskpetroleum.no), [norskeutslipp.no](https://norskeutslipp.no), and [sokkeldirektoratet.no](https://sokkeldirektoratet.no)
 
 ## Setup
 
-To get started, clone this repository and set up your environment.
+To get started, clone this repository and set up your environment. Or open the notebooks in Google Collab. Link under usage.
 
 ### Prerequisites
 
