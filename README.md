@@ -20,6 +20,7 @@ This project aims to provide a comprehensive analysis of the oil and gas fields 
 ## Data
 
 The data for this project includes:
+
 - Shapefiles for geolocation of fields, pipes, rigs, and wells
 - CSV files for information about production, emissions, and other relevant data for each field
 - The data is provided by [norskpetroleum.no](https://norskpetroleum.no), [norskeutslipp.no](https://norskeutslipp.no), and [sokkeldirektoratet.no](https://sokkeldirektoratet.no)
@@ -42,8 +43,12 @@ I recommend either cloning the repo or running the code in Google Collab. This p
 
 ### 1. Geospatial data analysis
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/percw/Norwegian_oil_gas_decarbonization/blob/main/notebooks/norwegian_shelf.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/percw/Norwegian_oil_gas_decarbonization/blob/main/notebooks/01_production_and_emission_data_building.ipynb)
 
 ### 2. Production and emission analysis
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/percw/Norwegian_oil_gas_decarbonization/blob/main/notebooks/production_emission_data.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/percw/Norwegian_oil_gas_decarbonization/blob/main/notebooks/02_production_and_emission_data_cleaning.ipynb)
+
+### 3. Data Processing
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/percw/Norwegian_oil_gas_decarbonization/blob/main/notebooks/03_production_and_emission_data_processing.ipynb)
