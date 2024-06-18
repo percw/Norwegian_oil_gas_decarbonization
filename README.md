@@ -43,12 +43,12 @@ I recommend either cloning the repo or running the code in Google Collab. This p
 
 ### 1. Geospatial data analysis
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/percw/Norwegian_oil_gas_decarbonization/blob/main/notebooks/01_production_and_emission_data_building.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/percw/Norwegian_oil_gas_decarbonization/blob/main/notebooks/01_data_building/01_production_and_emission_data_building.ipynb)
 
 ### 2. Production and emission analysis
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/percw/Norwegian_oil_gas_decarbonization/blob/main/notebooks/02_production_and_emission_data_cleaning.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/percw/Norwegian_oil_gas_decarbonization/blob/main/notebooks/02_data_cleaning/02_production_and_emission_data_cleaning.ipynb)
 
 ### 3. Data Processing
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/percw/Norwegian_oil_gas_decarbonization/blob/main/notebooks/03_production_and_emission_data_processing.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/percw/Norwegian_oil_gas_decarbonization/blob/main/notebooks/03_data_processing/03_production_and_emission_data_processing.ipynb)
