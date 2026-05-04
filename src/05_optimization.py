@@ -498,13 +498,15 @@ field_pred_data_lifetime["predicted_production"].sum()
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-# Set world-class aesthetic theme
+# Set professional academic theme
 sns.set_theme(style="whitegrid", context="paper", font_scale=1.2)
 plt.rcParams['figure.dpi'] = 300
 plt.rcParams['savefig.dpi'] = 300
 plt.rcParams['font.family'] = 'serif'
 
 import math
+# Ensure assets directory exists
+os.makedirs('assets', exist_ok=True)
 
 
 def plot_yearly_production_emissions(results, lambdas, field_pred_data_lifetime):
@@ -585,7 +587,7 @@ def plot_yearly_production_emissions(results, lambdas, field_pred_data_lifetime)
     plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left')
     sns.despine()
     plt.tight_layout()
-    plt.savefig('production_scenarios.png')
+    plt.savefig('assets/production_scenarios.png')
     plt.close()
 
 
@@ -733,7 +735,7 @@ def plot_annual_emission_intensity(results, lambdas, field_pred_data_lifetime):
     plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left')
     sns.despine()
     plt.tight_layout()
-    plt.savefig('annual_intensity.png')
+    plt.savefig('assets/annual_intensity.png')
     plt.close()
 
 
@@ -784,7 +786,7 @@ def plot_scatter_tradeoff(results, lambdas, field_pred_data_lifetime):
     cbar.set_label("$\lambda$ Policy Stringency", fontsize=12)
     sns.despine()
     plt.tight_layout()
-    plt.savefig('scatter_tradeoff.png')
+    plt.savefig('assets/scatter_tradeoff.png')
     plt.close()
 
 
@@ -843,7 +845,7 @@ def plot_mac_curve(results, lambdas, field_pred_data_lifetime):
         plt.ylabel('Marginal Abatement Cost ($\$/tCO_2e$)', fontsize=12, fontweight='bold')
         sns.despine()
         plt.tight_layout()
-        plt.savefig('mac_curve.png')
+        plt.savefig('assets/mac_curve.png')
         plt.close()
         
         print("\n--- Marginal Abatement Cost (MAC) Data ---")

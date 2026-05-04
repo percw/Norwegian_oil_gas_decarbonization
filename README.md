@@ -1,9 +1,5 @@
-<div align="center">
-  <img src="assets/header_panoramic.png" alt="NCS Decarbonization Panoramic" width="100%">
-
-  # Decarbonizing the Norwegian Continental Shelf
-  ### *Algorithmic Policy Frameworks for the 2030 "Fit For 55" Mandate*
-</div>
+# Decarbonizing the Norwegian Continental Shelf
+### *Algorithmic Policy Frameworks for the 2030 "Fit For 55" Mandate*
 
 ---
 
@@ -33,7 +29,7 @@ We derive the real economic cost of abatement. While the first 20% of emissions 
 
 ### 3. Core Findings
 - **Electrification Strategy:** Electrifying just **13 specific field hubs** is mathematically sufficient to meet the 55% reduction target without any loss in production.
-- **Phase-out Strategy:** A surgical production cut of **28%**—focused exclusively on high-intensity fields—can yield a massive **68% reduction** in lifetime emissions.
+- **Phase-out Strategy:** A targeted production cut of **28%**—focused exclusively on high-intensity fields—can yield a significant **68% reduction** in lifetime emissions.
 
 ---
 

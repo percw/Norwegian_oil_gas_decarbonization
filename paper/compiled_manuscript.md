@@ -18,7 +18,7 @@ This paper evaluates data-driven optimization strategies for decarbonizing the N
 
 # 1. Introduction
 
-As of May 4, 2026, the Norwegian Continental Shelf (NCS) faces an unprecedented dual challenge: maintaining its role as the primary guarantor of European energy security while adhering to the stringent emission reduction targets of the "Fit For 55" mandate. 
+As of May 4, 2026, the Norwegian Continental Shelf (NCS) faces a complex dual challenge: maintaining its role as the primary guarantor of European energy security while adhering to the stringent emission reduction targets of the "Fit For 55" mandate. 
 
 Following a period of peak gas production in 2024, where volumes reached a record 124 billion Sm³, total petroleum production on the NCS has stabilized at approximately 239.2 MSm³ o.e. as of the end of 2025 (Norwegian Offshore Directorate, 2026). However, this high level of industrial activity remains carbon-intensive, with 2024 greenhouse gas emissions totaling approximately 10.9 million tonnes of CO2-equivalent ($MtCO_2e$). 
 
@@ -93,47 +93,47 @@ The DML analysis confirms that field age, water cut, and the presence of subsea 
 
 The Pareto trade-off between baseline production and carbon emissions clearly demonstrates this heterogeneity. A small cluster of tail-end producers accounts for a vastly disproportionate share of the region's overall emissions.
 
-![Pareto Trade-off: Production vs Emissions](../scatter_tradeoff.png)
+![Pareto Trade-off: Production vs Emissions](../assets/scatter_tradeoff.png)
 
 ## 4.2. Strategy A: Targeted Electrification
 
 When the solver is constrained to prioritize electrification (supplying power from the onshore grid to offshore platforms to offset local gas turbines), it targets a subset of highly specific platforms. We found that electrifying just 13 core fields—primarily major hubs like the Ekofisk and Oseberg fields—can achieve the necessary 55% regional reduction without sacrificing any remaining economic production. 
 
-However, as of 2026, the political reality of routing massive volumes of domestic renewable energy to offshore oil platforms is highly controversial, heavily impacting local electricity prices and grid stability. 
+However, as of 2026, the political reality of routing significant volumes of domestic renewable energy to offshore oil platforms is highly controversial, heavily impacting local electricity prices and grid stability. 
 
 ## 4.3. Strategy B: Strategic Production Phase-Out
 
 Alternatively, the linear programming solver can meet the emission targets purely through strategic field closures. 
 
-![Production Phase-out Scenarios](../production_scenarios.png)
+![Production Phase-out Scenarios](../assets/production_scenarios.png)
 
 ### Case Studies in Phase-Out Dynamics
 By restricting the stringency parameter $\lambda$, the algorithm sequentially shuts down the most inefficient fields:
-- **Immediate Closure (Statfjord & Brage):** At a modest $\lambda = 0.9$ (a 10% emission cut), the model immediately sacrifices late-life fields like Statfjord and Brage. These fields have immense legacy infrastructure but highly depleted reservoirs, making their marginal carbon intensity unacceptably high.
-- **Resilient Core (Edvard Grieg & Johan Sverdrup):** Conversely, newer fields equipped with modern extraction technology and high initial reservoir pressures are protected by the algorithm even under extreme $\lambda = 0.5$ constraints, as they provide massive economic yield for minimal carbon overhead.
+- **Immediate Closure (Statfjord & Brage):** At a modest $\lambda = 0.9$ (a 10% emission cut), the model immediately sacrifices late-life fields like Statfjord and Brage. These fields have extensive legacy infrastructure but highly depleted reservoirs, making their marginal carbon intensity unacceptably high.
+- **Resilient Core (Edvard Grieg & Johan Sverdrup):** Conversely, newer fields equipped with modern extraction technology and high initial reservoir pressures are protected by the algorithm even under stringent $\lambda = 0.5$ constraints, as they provide substantial economic yield for minimal carbon overhead.
 
-![Annual Emission Intensity](../annual_intensity.png)
+![Annual Emission Intensity](../assets/annual_intensity.png)
 
 ## 4.4. Marginal Abatement Cost (MAC)
 
 The MAC curve derived from our optimization clearly illustrates the economic efficiency of the targeted phase-out. Initial emission reductions (the first 20%) can be achieved at near-zero marginal cost by closing highly inefficient tail-end producers. 
 
-However, the curve steepens dramatically. To meet deeper decarbonization targets beyond 30%, the algorithm is forced to shut down younger, highly profitable fields. At this critical inflection point, the lost revenue per ton of CO2 abated skyrockets, severely testing the political viability of pure phase-out strategies in the current energy-secure macroeconomic climate.
+However, the curve steepens dramatically. To meet deeper decarbonization targets beyond 30%, the algorithm is forced to shut down younger, highly profitable fields. At this critical inflection point, the lost revenue per ton of CO2 abated increases sharply, severely testing the political viability of pure phase-out strategies in the current energy-secure macroeconomic climate.
 
-![Marginal Abatement Cost Curve](../mac_curve.png)
+![Marginal Abatement Cost Curve](../assets/mac_curve.png)
 
 
 ---
 
 # 5. Discussion
 
-As the 2030 "Fit For 55" deadline rapidly approaches, the Norwegian Continental Shelf operates at the epicenter of a profound macroeconomic conflict. On one side, severe geopolitical instability following the events of the mid-2020s has positioned Norwegian gas as the indispensable backbone of European energy security. On the other side, domestic climate mandates demand an immediate and brutal reduction in offshore carbon intensity.
+As the 2030 "Fit For 55" deadline rapidly approaches, the Norwegian Continental Shelf operates at the epicenter of a profound macroeconomic conflict. On one side, severe geopolitical instability following the events of the mid-2020s has positioned Norwegian gas as the indispensable backbone of European energy security. On the other side, domestic climate mandates demand an immediate and substantial reduction in offshore carbon intensity.
 
 Our data-driven algorithmic optimization proves that broad-stroke, top-down policies—such as uniform carbon taxation—are mathematically suboptimal in this environment. The extreme heterogeneity of offshore assets means that flat carbon prices fail to effectively phase out the highest polluters, instead merely eroding the margins of highly efficient, modern fields like Johan Sverdrup.
 
-The results are highly relevant to current projects. For example, as of late 2025, the number of fields operated entirely or partially by power from shore has reached 39, up from just 16 in 2020. Our optimization models confirm that this targeted electrification of specific hubs—such as the massive Yggdrasil development (where the 2025 "Omega Alfa" campaign recently discovered an additional 96-134 million barrels of oil equivalent)—is the most efficient way to maintain output while slash emissions.
+The results are highly relevant to current projects. For example, as of late 2025, the number of fields operated entirely or partially by power from shore has reached 39, up from just 16 in 2020. Our optimization models confirm that this targeted electrification of specific hubs—such as the Yggdrasil development (where the 2025 "Omega Alfa" campaign recently discovered an additional 96-134 million barrels of oil equivalent)—is the most efficient way to maintain output while slash emissions.
 
-However, the Marginal Abatement Cost (MAC) curve reveals a sharp inflection point. While the initial 20% of emissions can be abated cheaply by retiring inefficient legacy infrastructure, pushing beyond a 30% reduction via phase-outs incurs astronomical economic losses, jeopardizing European energy supply. In the volatile political climate of May 2026, policymakers must therefore carefully weigh the mathematical efficiency of targeted electrification against the political resistance to onshore grid expansion. 
+However, the Marginal Abatement Cost (MAC) curve reveals a sharp inflection point. While the initial 20% of emissions can be abated cheaply by retiring inefficient legacy infrastructure, pushing beyond a 30% reduction via phase-outs incurs significant economic losses, jeopardizing European energy supply. In the volatile political climate of May 2026, policymakers must therefore carefully weigh the mathematical efficiency of targeted electrification against the political resistance to onshore grid expansion. 
 
 Ultimately, this paper provides a robust, replicable, and dynamic framework for algorithmic climate policy, ensuring that the necessary decarbonization of the offshore energy sector is achieved with mathematical precision and maximal economic resilience.
 

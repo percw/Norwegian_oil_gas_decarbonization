@@ -1,6 +1,6 @@
 # 1. Introduction
 
-As of May 4, 2026, the Norwegian Continental Shelf (NCS) faces an unprecedented dual challenge: maintaining its role as the primary guarantor of European energy security while adhering to the stringent emission reduction targets of the "Fit For 55" mandate. 
+As of May 4, 2026, the Norwegian Continental Shelf (NCS) faces a complex dual challenge: maintaining its role as the primary guarantor of European energy security while adhering to the stringent emission reduction targets of the "Fit For 55" mandate. 
 
 Following a period of peak gas production in 2024, where volumes reached a record 124 billion Sm³, total petroleum production on the NCS has stabilized at approximately 239.2 MSm³ o.e. as of the end of 2025 (Norwegian Offshore Directorate, 2026). However, this high level of industrial activity remains carbon-intensive, with 2024 greenhouse gas emissions totaling approximately 10.9 million tonnes of CO2-equivalent ($MtCO_2e$). 
 
