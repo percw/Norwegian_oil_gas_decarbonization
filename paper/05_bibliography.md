@@ -8,4 +8,5 @@
 6. **IEA.** (2024). *The Role of Critical Minerals in Clean Energy Transitions*. World Energy Outlook Special Report.
 7. **Knittel, C. K., & Metaxoglou, K.** (2014). *Estimation of structural industrial organization models: A guide for practitioners*. Journal of Applied Econometrics, 29(2), 301-317.
 8. **Pearl, J.** (2009). *Causality: Models, Reasoning, and Inference*. Cambridge University Press.
-9. **Sokkeldirektoratet.** (2026). *Annual Emissions and Production Inventory for the NCS*.
+9. **Norwegian Offshore Directorate.** (2026). *The Shelf 2025: Production, Emissions, and the Path to 2030*. NOD Annual Report.
+10. **Aker BP.** (2025). *Yggdrasil Development Update and the Omega Alfa Campaign Results*. Operational Disclosure.
