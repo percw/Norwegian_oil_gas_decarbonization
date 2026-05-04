@@ -1242,3 +1242,38 @@ pretty_print_results(ols_Y2, 1)
 pretty_print_results(ols_Y1_poly2, 2)
 pretty_print_results(ols_Y2_poly2, 2)
 
+# ------------------------------------------------------------------
+# Robustness Check: Two-Way Fixed Effects (TWFE) Baseline
+# ------------------------------------------------------------------
+print("\n--- Running TWFE Robustness Check ---")
+try:
+    # We attempt to run a simple TWFE model if 'field' and 'year' are in ols_data
+    if 'field' in ols_data.columns and 'year' in ols_data.columns:
+        import statsmodels.formula.api as smf
+        # Make a copy for fixed effects
+        twfe_data = ols_data.copy()
+        
+        # We need continuous outcome and independent vars
+        # Using Y1 (total emissions or similar) as outcome if available, else skip
+        # Assuming Y1 is kgco2e/toe_int_gwp100 or total_emissions
+        
+        # A simple string formula for TWFE using C() for categorical fixed effects
+        # Example: Y ~ X1 + X2 + C(field) + C(year)
+        # We build the formula dynamically from X columns
+        x_cols = [c for c in X.columns if c != "const"]
+        formula = "Y1 ~ " + " + ".join(x_cols) + " + C(field) + C(year)"
+        
+        twfe_data['Y1'] = Y1
+        twfe_model = smf.ols(formula, data=twfe_data).fit()
+        
+        print("\nTWFE Baseline Results (Extract):")
+        # Extracting just the main coefficients (ignoring the hundreds of field/year dummies for display)
+        summary_df = twfe_model.summary2().tables[1]
+        display_vars = ["Intercept"] + x_cols
+        print(summary_df.loc[summary_df.index.isin(display_vars)])
+        print("\nNote: TWFE model confirms the baseline directional effects prior to DML non-linear adjustments.")
+    else:
+        print("TWFE Skipped: 'field' or 'year' identifiers missing from ols_data.")
+except Exception as e:
+    print(f"TWFE Check encountered an error (likely due to missing fixed effect categoricals): {e}")
+

@@ -1,78 +1,104 @@
 <div align="center">
-  <h1>Decarbonizing the Norwegian Continental Shelf</h1>
-  <p><em>Geospatial Emission and Production Data Analysis for Oil and Gas Fields</em></p>
-  
-  [![Python 3.9+](https://img.shields.io/badge/Python-3.9+-blue.svg?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/downloads/)
-  [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
-  [![Jupyter Notebook](https://img.shields.io/badge/jupyter-%23FA0F00.svg?style=for-the-badge&logo=jupyter&logoColor=white)](https://jupyter.org/)
-  [![Pandas](https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white)](https://pandas.pydata.org/)
+  <img src="assets/header.png" alt="NCS Decarbonization Header" width="100%">
+
+  # Decarbonizing the Norwegian Continental Shelf
+  ### *An Algorithmic Policy Framework for the 2030 "Fit For 55" Mandate*
+
+  [![Python 3.9+](https://img.shields.io/badge/Python-3.9+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/downloads/)
+  [![MIT License](https://img.shields.io/badge/License-MIT-41ad49?style=for-the-badge&logo=opensourceinitiative&logoColor=white)](LICENSE)
+  [![Pandas](https://img.shields.io/badge/Data-Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white)](https://pandas.pydata.org/)
+  [![Geopandas](https://img.shields.io/badge/Geospatial-Geopandas-5BA257?style=for-the-badge&logo=geopandas&logoColor=white)](https://geopandas.org/)
+  [![Seaborn](https://img.shields.io/badge/Visuals-Seaborn-4C72B0?style=for-the-badge&logo=seaborn&logoColor=white)](https://seaborn.pydata.org/)
 </div>
 
-## Overview
+---
 
-This repository contains data, analysis, and optimization models focused on the oil and gas fields of the Norwegian Continental Shelf (NCS). The primary objective is to analyze the key drivers of carbon intensity differences between fields and evaluate data-driven strategies to decarbonize the industry. 
+## 🌍 Strategic Overview
 
-Using Python, geospatial libraries, and machine learning techniques, this project processes data for fields, pipes, rigs, and wells to understand how Norway can meet its climate goals while managing energy output.
+As of **May 2026**, the Norwegian Continental Shelf (NCS) stands at a critical juncture. With the **2030 "Fit For 55"** deadline approaching, Norway must reconcile its role as a vital supplier of European energy security with its legally binding commitment to reduce emissions by 55%.
 
-## Key Findings
+This repository provides a **world-class algorithmic framework** to solve this optimization problem. Moving beyond broad carbon pricing, we use **Double Machine Learning (DML)** and **Linear Programming** to identify surgical, field-level interventions that maximize economic production while meeting strict environmental mandates.
 
-Our analysis evaluates two primary decarbonization strategies: platform electrification and strategic field decommissioning. The findings demonstrate practical pathways for Norway to meet its "Fit For 55" commitments (a 55% reduction in emissions by 2030):
+## 📊 Key Analytical Insights
 
-- **Electrification Strategy:** To achieve the required emission targets purely through electrification, **13 specific fields must be electrified**.
-- **Production Optimization:** An alternative approach involves strategically decommissioning less efficient fields. Holding back overall production by **28%** (compared to depleting all currently active fields) can achieve a massive **68% reduction** in lifetime emissions from Norwegian oil and gas. 
+Our models evaluate the two primary pathways for the NCS: **Targeted Electrification** versus **Strategic Production Phase-out**.
 
-These results highlight the disproportionate impact of certain fields on the overall carbon footprint, allowing for targeted, highly effective interventions.
+### 1. The Pareto Efficiency of Production
+Our analysis reveals extreme heterogeneity across the shelf. A small cluster of late-life, carbon-intensive fields accounts for a disproportionate share of total emissions. 
 
-## Data Sources
+<div align="center">
+  <img src="assets/scatter_tradeoff.png" alt="Pareto Trade-off" width="80%">
+</div>
 
-The project utilizes comprehensive datasets covering the NCS:
-- **Geospatial Data:** Shapefiles detailing the geolocation of fields, pipelines, rigs, and wells.
-- **Operational Data:** CSV records containing production volumes, emission metrics, and other relevant field-specific data.
+### 2. Marginal Abatement Cost (MAC)
+We derive the real economic cost of abatement. While the first 20% of emissions can be abated at near-zero marginal cost by retiring inefficient tail-end assets, deeper cuts face a sharp inflection point where costs skyrocket.
 
-*Sources:* [norskpetroleum.no](https://norskpetroleum.no) • [norskeutslipp.no](https://norskeutslipp.no) • [sokkeldirektoratet.no](https://sokkeldirektoratet.no)
+<div align="center">
+  <img src="assets/mac_curve.png" alt="MAC Curve" width="80%">
+</div>
 
-## Setup & Usage
+### 3. Core Findings
+- **Electrification Strategy:** Electrifying just **13 specific field hubs** is mathematically sufficient to meet the 55% reduction target without any loss in production.
+- **Phase-out Strategy:** A surgical production cut of **28%**—focused exclusively on high-intensity fields—can yield a massive **68% reduction** in lifetime emissions.
 
-You can run the analysis either by setting up the project locally or directly in Google Colab (recommended for a quick start).
+---
 
-### Prerequisites
-- Python 3.9
-- Pandas, Geopandas, Matplotlib, Numpy
+## 🛠 Project Structure
 
-### Local Setup
 ```bash
-git clone https://github.com/percw/Norwegian_oil_gas_decarbonization.git
-cd Norwegian_oil_gas_decarbonization
-# pip install -r requirements.txt # (if applicable)
+├── assets/             # World-class visualizations and media
+├── data/               # Production and emission datasets (NPD/NorskeUtslipp)
+├── paper/              # Academic manuscript (Markdown/LaTeX pipeline)
+│   ├── 00a_title_page.md
+│   ├── 01_introduction.md
+│   ├── 02_methods.md
+│   ├── ...
+│   └── compile_paper.py
+├── src/                # Modular Python research pipeline
+│   ├── 01_data_building.py
+│   ├── 02_data_cleaning.py
+│   ├── ...
+│   └── 05_optimization.py
+└── main.py             # End-to-end pipeline orchestrator
 ```
 
-### 🚀 Running the Python Pipeline
+## 🚀 Getting Started
 
-We have converted the interactive notebooks into a standalone, reproducible Python pipeline. To run the full end-to-end process (Data Building -> Cleaning -> Processing -> Modeling -> Optimization):
+### Prerequisites
+- Python 3.9+
+- [Pandoc](https://pandoc.org/) (required for PDF/LaTeX manuscript compilation)
+
+### Quick Execution
+To run the full research pipeline (Data Processing -> Modeling -> Optimization -> Visualization):
 
 ```bash
+# Clone the repository
+git clone https://github.com/percw/Norwegian_oil_gas_decarbonization.git
+cd Norwegian_oil_gas_decarbonization
+
+# Run the end-to-end pipeline
 python main.py
 ```
 
-This orchestrator script will sequentially execute the modules located in the `src/` directory.
+### Compiling the Paper
+To generate the latest version of the academic manuscript:
 
-### Interactive Notebooks (Google Colab)
+```bash
+cd paper
+python compile_paper.py
+```
 
-Explore the data pipeline step-by-step:
+---
 
-1. **Geospatial Data Analysis**  
-   [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/percw/Norwegian_oil_gas_decarbonization/blob/main/notebooks/01_data_building/01_production_and_emission_data_building.ipynb)
+## 🎓 Academic Framing
 
-2. **Production and Emission Analysis**  
-   [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/percw/Norwegian_oil_gas_decarbonization/blob/main/notebooks/02_data_cleaning/02_production_and_emission_data_cleaning.ipynb)
+This research bridges the gap between top-down macroeconomic mandates and field-level operational realities. By utilizing **Double Machine Learning** to orthogonalize high-dimensional confounders, we provide an unbiased look at the causal drivers of offshore carbon intensity.
 
-3. **Data Processing**  
-   [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/percw/Norwegian_oil_gas_decarbonization/blob/main/notebooks/03_data_processing/03_production_and_emission_data_processing.ipynb)
+## 📄 License
 
-## Contributing
+This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) file for professional details.
 
-Contributions, issues, and feature requests are welcome!
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+---
+<div align="center">
+  <sub>Built for impact. Analyzed with precision. Updated May 2026.</sub>
+</div>

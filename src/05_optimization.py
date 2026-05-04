@@ -48,7 +48,7 @@ base_url = "https://github.com/percw/Norwegian_oil_gas_decarbonization/tree/main
 shapefile_components = ["fldArea.shp", "fldArea.shx", "fldArea.dbf"]
 
 # Local directory to save downloaded files
-local_dir = "../../data/raw_data/geo/fields"
+local_dir = "data/raw_data/geo/fields"
 
 
 # Function to download a file from a URL to a local path
@@ -73,7 +73,7 @@ def import_field_data():
 
 
 # Import field data
-fields = gpd.read_file("../../data/raw_data/geo/fields/fldArea.shp")
+fields = gpd.read_file("data/raw_data/geo/fields/fldArea.shp")
 
 # Now, `fields` contains the GeoDataFrame with the field data
 print(fields.head())
@@ -496,6 +496,14 @@ field_pred_data_lifetime["predicted_production"].sum()
 
 
 import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Set world-class aesthetic theme
+sns.set_theme(style="whitegrid", context="paper", font_scale=1.2)
+plt.rcParams['figure.dpi'] = 300
+plt.rcParams['savefig.dpi'] = 300
+plt.rcParams['font.family'] = 'serif'
+
 import math
 
 
@@ -563,20 +571,22 @@ def plot_yearly_production_emissions(results, lambdas, field_pred_data_lifetime)
         plt.plot(
             yearly_production.index,
             yearly_production.values,
-            label=f"Lambda: {lambda_}\nProduction Reduction: {math.trunc(production_reduction)}%,\nEmission Reduction: {math.trunc(emission_reduction)}%,\nEstimated Emission intensity: {math.trunc(emission_intensity)} kgCO2e/toe.",
+            label=f"$\lambda={lambda_}$ | Prod. Cut: {math.trunc(production_reduction)}% | Emi. Cut: {math.trunc(emission_reduction)}% | Intensity: {math.trunc(emission_intensity)} $kgCO_2e/toe$",
             linestyle="--",
+            linewidth=2,
+            marker='o',
+            markersize=4
         )
 
-        # Plot emissions
-        # plt.plot(yearly_emissions.index, yearly_emissions.values, label=f'Emissions (λ={lambda_}, Reduction: {emission_reduction:.2f}%)', linestyle='--')
-
     # Add labels and legend
-    plt.xlabel("Year")
-    plt.ylabel("Million SM3 Oil Equivalent")
-    plt.title("Production Ramp-down Scenarios and Emission Reductions")
-    plt.legend()
-    plt.grid(True)
-    plt.show()
+    plt.xlabel("Year", fontsize=12, fontweight='bold')
+    plt.ylabel("Production ($Mtoe$)", fontsize=12, fontweight='bold')
+    plt.title("Production Phase-out Scenarios and Emission Reductions", fontsize=14, fontweight='bold', pad=15)
+    plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left')
+    sns.despine()
+    plt.tight_layout()
+    plt.savefig('production_scenarios.png')
+    plt.close()
 
 
 plot_yearly_production_emissions(results, lambdas, field_pred_data_lifetime)
@@ -673,7 +683,7 @@ def plot_yearly_production_emissions(results, lambdas, field_pred_data_lifetime)
     plt.legend()
     plt.grid(True, which="both", linestyle="--", linewidth=0.25)
 
-    plt.show()
+    plt.close()
 
 
 plot_yearly_production_emissions(results, lambdas, field_pred_data_lifetime)
@@ -701,24 +711,30 @@ def plot_annual_emission_intensity(results, lambdas, field_pred_data_lifetime):
         # Calculate emission intensity
         emission_intensity = yearly_emissions / (yearly_production * 100)
 
-        if emission_intensity.iloc[0] > constant:
-            constant = emission_intensity.iloc[0]
+        yearly_intensity = yearly_emissions / (yearly_production * 100)
+
+        if yearly_intensity.iloc[0] > constant:
+            constant = yearly_intensity.iloc[0]
 
         # Plot emission intensity
         plt.plot(
-            emission_intensity.index,
-            emission_intensity.values,
-            label=f"λ={lambda_}",
-            linestyle="--",
+            yearly_intensity.index,
+            yearly_intensity.values,
+            label=f"$\lambda={lambda_}$ Phase-out",
+            linestyle="-",
+            linewidth=2,
+            marker='o',
+            markersize=4
         )
 
-    # Add labels and legend
-    plt.xlabel("Year")
-    plt.ylabel("Emission Intensity (kgCO2e/TOE)")
-    plt.title("Annual Emission Intensity")
-    plt.legend()
-    plt.grid(True)
-    plt.show()
+    plt.xlabel("Year", fontsize=12, fontweight='bold')
+    plt.ylabel("Emission Intensity ($kgCO_2e/toe$)", fontsize=12, fontweight='bold')
+    plt.title("Annual Emission Intensity Over Time", fontsize=14, fontweight='bold', pad=15)
+    plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left')
+    sns.despine()
+    plt.tight_layout()
+    plt.savefig('annual_intensity.png')
+    plt.close()
 
 
 plot_annual_emission_intensity(results, lambdas, field_pred_data_lifetime)
@@ -750,29 +766,94 @@ def plot_scatter_tradeoff(results, lambdas, field_pred_data_lifetime):
         data_points, columns=["Year", "Production", "Emissions", "Lambda"]
     )
 
-    plt.figure(figsize=(14, 8))
+    plt.figure(figsize=(10, 8))
     scatter = plt.scatter(
-        plot_df["Production"],
-        plot_df["Emissions"],
+        plot_df["Production"] / 1000000, # Converting to Millions
+        plot_df["Emissions"] / 1000000, # Converting to Millions
         c=plot_df["Lambda"],
-        cmap="viridis",
-        alpha=0.6,
+        cmap="coolwarm",
+        alpha=0.8,
+        s=100,
         edgecolors="w",
+        linewidth=1
     )
-    plt.xlabel("Production Volume")
-    plt.ylabel("Emissions")
-    plt.title("Trade-off between Production Volume and Emissions")
+    plt.xlabel("Production ($Mtoe$)", fontsize=12, fontweight='bold')
+    plt.ylabel("Emissions ($MtCO_2e$)", fontsize=12, fontweight='bold')
+    plt.title("Pareto Trade-off: Production vs Emissions", fontsize=14, fontweight='bold', pad=15)
     cbar = plt.colorbar(scatter)
-    cbar.set_label("Lambda")
-    plt.grid(True)
-    plt.show()
+    cbar.set_label("$\lambda$ Policy Stringency", fontsize=12)
+    sns.despine()
+    plt.tight_layout()
+    plt.savefig('scatter_tradeoff.png')
+    plt.close()
 
 
 plot_scatter_tradeoff(results, lambdas, field_pred_data_lifetime)
 
-# Checking the total production volume in 2021
+# ------------------------------------------------------------------
+# 2. Marginal Abatement Cost (MAC) Curve
+# ------------------------------------------------------------------
 
+def plot_mac_curve(results, lambdas, field_pred_data_lifetime):
+    """
+    Calculates and plots the Marginal Abatement Cost (MAC) curve based on production phase-outs.
+    Note: PROFIT_PER_TOE is a placeholder proxy for actual operating margins.
+    """
+    PROFIT_PER_TOE = 500  # Placeholder economic proxy
+    
+    mac_data = []
+    baseline_emissions = field_pred_data_lifetime['predicted_emissions'].sum()
+    baseline_production = field_pred_data_lifetime['predicted_production'].sum()
+    baseline_profit = baseline_production * PROFIT_PER_TOE
+    
+    for lambda_ in lambdas:
+        df = results[lambda_]
+        
+        scenario_emissions = df['optimized_emissions'].sum()
+        scenario_production = df['optimized_production'].sum()
+        
+        emissions_abated = baseline_emissions - scenario_emissions
+        if emissions_abated <= 0:
+            continue
+            
+        scenario_profit = scenario_production * PROFIT_PER_TOE
+        cost_of_abatement = baseline_profit - scenario_profit
+        mac = cost_of_abatement / emissions_abated if emissions_abated > 0 else 0
+        
+        mac_data.append({
+            'lambda': lambda_,
+            'emissions_abated': emissions_abated,
+            'cost_of_abatement': cost_of_abatement,
+            'mac': mac
+        })
+        
+    mac_df = pd.DataFrame(mac_data)
+    
+    if len(mac_df) > 0:
+        plt.figure(figsize=(10, 6))
+        # Convert to Millions for standard units
+        x_data = mac_df['emissions_abated'] / 1000000
+        y_data = mac_df['mac']
+        
+        plt.plot(x_data, y_data, marker='o', linestyle='-', color='#d62728', linewidth=2.5, markersize=8)
+        plt.fill_between(x_data, y_data, color='#d62728', alpha=0.15)
+        
+        plt.title('Marginal Abatement Cost (MAC) Curve\nStrategic Phase-out', fontsize=16, fontweight="bold", pad=15)
+        plt.xlabel('Emissions Abated ($MtCO_2e$)', fontsize=12, fontweight='bold')
+        plt.ylabel('Marginal Abatement Cost ($\$/tCO_2e$)', fontsize=12, fontweight='bold')
+        sns.despine()
+        plt.tight_layout()
+        plt.savefig('mac_curve.png')
+        plt.close()
+        
+        print("\n--- Marginal Abatement Cost (MAC) Data ---")
+        display(mac_df)
+
+plot_mac_curve(results, lambdas, field_pred_data_lifetime)
+
+# Checking the total production volume in 2021
 field_data[field_data["year"] == "2021"]["net_oil_eq_prod_yearly_mill_sm3"].sum()
+
 field_data[field_data["year"] == "2021"]["net_oil_eq_prod_yearly_mill_sm3"].sum()
 
 field_data
@@ -1115,7 +1196,7 @@ def plot_heatmap(heatmap_data, lambda_):
     plt.ylabel("Fields", fontsize=14)
     plt.xticks(rotation=45)
     plt.yticks(rotation=0)
-    plt.show()
+    plt.close()
 
 
 # Choose the lambda value to display
@@ -1158,7 +1239,7 @@ def plot_stacked_bar_chart(bar_chart_data, lambda_):
     plt.legend(
         title="Electrification Level", bbox_to_anchor=(1.05, 1), loc="upper left"
     )
-    plt.show()
+    plt.close()
 
 
 # Prepare bar chart data for the chosen lambda
@@ -1193,7 +1274,7 @@ def plot_total_emissions(total_emissions, electrification_levels, lambda_):
     plt.ylabel("Total Emissions", fontsize=14)
     plt.ylim(0, max(total_emissions) * 1.1)
     plt.grid(True, which="both", linestyle="--", linewidth=0.25)
-    plt.show()
+    plt.close()
 
 
 # Calculate total emissions for the chosen lambda
@@ -1360,9 +1441,10 @@ def plot_closed_fields_cartopy_adjusted(
     ax.set_extent([0, 32, 55, 72], crs=ccrs.PlateCarree())
 
     # Show the plot
-    plt.show()
-
+    plt.close()
 
 plot_closed_fields_cartopy_adjusted(results, 0.9, lifetime_pred_optimized_df)
 
+
+# ------------------------------------------------------------------
 
