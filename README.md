@@ -46,6 +46,16 @@ cd Norwegian_oil_gas_decarbonization
 # pip install -r requirements.txt # (if applicable)
 ```
 
+### 🚀 Running the Python Pipeline
+
+We have converted the interactive notebooks into a standalone, reproducible Python pipeline. To run the full end-to-end process (Data Building -> Cleaning -> Processing -> Modeling -> Optimization):
+
+```bash
+python main.py
+```
+
+This orchestrator script will sequentially execute the modules located in the `src/` directory.
+
 ### Interactive Notebooks (Google Colab)
 
 Explore the data pipeline step-by-step:
